@@ -1,0 +1,7 @@
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'001', N'Reverse Rhinopodoplasty', 1500)
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'002', N'Obtuse Pyloric Recombobulation', 3750)
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'003', N'Folded Demiophtalmectomy', 4500)
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'004', N'Complete Walletectomy', 10000)
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'005', N'Obfuscated Dermogastrotomy', 4899)
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'006', N'Reversible Pancreomyoplasty', 5600)
+INSERT INTO [dbo].[Procedures] ([Code], [Name], [Cost]) VALUES (N'007', N'Follicular Demiectomy', 25)

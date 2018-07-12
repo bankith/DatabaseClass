@@ -1,0 +1,6 @@
+INSERT INTO [dbo].[Undergoes] ([Patient], [Procedures], [Stay], [Date], [Physician], [AssistingNurse]) VALUES (N'10000001', N'002', 3215, N'2018-05-03 00:00:00', N'570201', N'10001')
+INSERT INTO [dbo].[Undergoes] ([Patient], [Procedures], [Stay], [Date], [Physician], [AssistingNurse]) VALUES (N'10000001', N'006', 3215, N'2018-05-02 00:00:00', N'530204', N'10001')
+INSERT INTO [dbo].[Undergoes] ([Patient], [Procedures], [Stay], [Date], [Physician], [AssistingNurse]) VALUES (N'10000001', N'007', 3217, N'2018-05-10 00:00:00', N'530204', N'10001')
+INSERT INTO [dbo].[Undergoes] ([Patient], [Procedures], [Stay], [Date], [Physician], [AssistingNurse]) VALUES (N'10000004', N'001', 3217, N'2018-05-07 00:00:00', N'560202', N'10002')
+INSERT INTO [dbo].[Undergoes] ([Patient], [Procedures], [Stay], [Date], [Physician], [AssistingNurse]) VALUES (N'10000004', N'004', 3217, N'2018-05-13 00:00:00', N'580201', N'10003')
+INSERT INTO [dbo].[Undergoes] ([Patient], [Procedures], [Stay], [Date], [Physician], [AssistingNurse]) VALUES (N'10000004', N'005', 3217, N'2018-05-09 00:00:00', N'570201', NULL)

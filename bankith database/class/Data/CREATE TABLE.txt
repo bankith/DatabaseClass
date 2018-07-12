@@ -1,0 +1,122 @@
+﻿CREATE TABLE
+
+CREATE TABLE Physician (
+    EmployeeID VARCHAR(6)  PRIMARY KEY NOT NULL,
+    Name       VARCHAR(50) NOT NULL,
+    Position   VARCHAR(50) NOT NULL,
+    SSN        VARCHAR(8)  NOT NULL,
+);
+
+CREATE TABLE Department (
+  DepartmentID INTEGER PRIMARY KEY NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Head VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL
+);
+
+CREATE TABLE Affiliated_With (
+  Physician VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL,
+  Department INTEGER FOREIGN KEY REFERENCES Department(DepartmentID) NOT NULL,
+  PrimaryAffiliation INT NOT NULL,
+  PRIMARY KEY(Physician, Department)
+);
+
+CREATE TABLE Procedures (
+  Code VARCHAR(3) PRIMARY KEY NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Cost REAL NOT NULL
+);
+
+CREATE TABLE Trained_In (
+  Physician VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL,
+  Treatment VARCHAR(3) FOREIGN KEY REFERENCES Procedures(Code) NOT NULL,
+  CertificationDate DATETIME NOT NULL,
+  CertificationExpires DATETIME NOT NULL,
+  PRIMARY KEY(Physician, Treatment)
+);
+
+CREATE TABLE Patient (
+  SSN VARCHAR(8) PRIMARY KEY NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Address VARCHAR(50) NOT NULL,
+  Phone VARCHAR(8) NOT NULL,
+  InsuranceID VARCHAR(8) NOT NULL,
+  PCP VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL
+);
+
+CREATE TABLE Nurse (
+  EmployeeID VARCHAR(6) PRIMARY KEY NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Position VARCHAR(50) NOT NULL,
+  Registered INT NOT NULL,
+  SSN VARCHAR(8) NOT NULL
+);
+
+CREATE TABLE Appointment (
+  AppointmentID VARCHAR(8) PRIMARY KEY NOT NULL,
+  Patient VARCHAR(8) FOREIGN KEY REFERENCES Patient(SSN) NOT NULL,
+  PrepNurse VARCHAR(6) FOREIGN KEY REFERENCES Nurse(EmployeeID),
+  Physician VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL,
+  StartA DATETIME NOT NULL,
+  EndA DATETIME NOT NULL,
+  ExaminationRoom CHAR NOT NULL
+);
+
+CREATE TABLE Medication (
+  Code INTEGER PRIMARY KEY NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Brand VARCHAR(50) NOT NULL,
+  Description VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Prescribes (
+  Physician VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL,
+  Patient VARCHAR(8) FOREIGN KEY REFERENCES Patient(SSN) NOT NULL,
+  Medication INTEGER FOREIGN KEY REFERENCES Medication(Code) NOT NULL,
+  Date DATETIME NOT NULL,
+  Appointment VARCHAR(8) FOREIGN KEY REFERENCES Appointment(AppointmentID),
+  Dose VARCHAR(10) NOT NULL,
+  PRIMARY KEY(Physician, Patient, Medication, Date)
+);
+
+CREATE TABLE Block (
+  Floors INTEGER NOT NULL,
+  Code INTEGER NOT NULL,
+  PRIMARY KEY(Floors, Code)
+); 
+
+CREATE TABLE Room (
+  Number INTEGER PRIMARY KEY NOT NULL,
+  Type VARCHAR(50) NOT NULL,
+  BlockFloor INTEGER NOT NULL,
+  BlockCode INTEGER NOT NULL,
+  Unavailable INT NOT NULL,
+  FOREIGN KEY (BlockFloor, BlockCode) REFERENCES Block (Floors, Code)
+);
+
+CREATE TABLE On_Call (
+  Nurse VARCHAR(6) FOREIGN KEY REFERENCES Nurse(EmployeeID) NOT NULL,
+  BlockFloor INTEGER NOT NULL,
+  BlockCode INTEGER NOT NULL,
+  StartO DATETIME NOT NULL,
+  EndO DATETIME NOT NULL,
+  FOREIGN KEY (BlockFloor, BlockCode) REFERENCES Block (Floors, Code),
+  PRIMARY KEY(Nurse, BlockFloor, BlockCode, StartO, EndO)
+);
+
+CREATE TABLE Stay (
+  StayID INTEGER PRIMARY KEY NOT NULL,
+  Patient VARCHAR(8) FOREIGN KEY REFERENCES Patient(SSN) NOT NULL,
+  Room INTEGER  FOREIGN KEY REFERENCES Room(Number) NOT NULL,
+  StartS DATETIME NOT NULL,
+  EndS DATETIME NOT NULL
+);
+
+CREATE TABLE Undergoes (
+  Patient VARCHAR(8) FOREIGN KEY REFERENCES Patient(SSN) NOT NULL,
+  Procedures VARCHAR(3) FOREIGN KEY REFERENCES Procedures(Code) NOT NULL,
+  Stay INTEGER FOREIGN KEY REFERENCES Stay(StayID) NOT NULL,
+  Date DATETIME NOT NULL,
+  Physician VARCHAR(6) FOREIGN KEY REFERENCES Physician(EmployeeID) NOT NULL,
+  AssistingNurse VARCHAR(6) FOREIGN KEY REFERENCES Nurse(EmployeeID),
+  PRIMARY KEY(Patient, Procedures, Stay, Date)
+);

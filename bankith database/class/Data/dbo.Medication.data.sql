@@ -1,0 +1,5 @@
+INSERT INTO [dbo].[Medication] ([Code], [Name], [Brand], [Description]) VALUES (1, N'Procrastin-X', N'X', N'N/A')
+INSERT INTO [dbo].[Medication] ([Code], [Name], [Brand], [Description]) VALUES (2, N'Thesisin', N'Foo Labs', N'N/A')
+INSERT INTO [dbo].[Medication] ([Code], [Name], [Brand], [Description]) VALUES (3, N'Awakin', N'Bar Laboratories', N'N/A')
+INSERT INTO [dbo].[Medication] ([Code], [Name], [Brand], [Description]) VALUES (4, N'Crescavitin', N'Baz Industries', N'N/A')
+INSERT INTO [dbo].[Medication] ([Code], [Name], [Brand], [Description]) VALUES (5, N'Melioraurin', N'Snafu Pharmaceuticals', N'N/A')

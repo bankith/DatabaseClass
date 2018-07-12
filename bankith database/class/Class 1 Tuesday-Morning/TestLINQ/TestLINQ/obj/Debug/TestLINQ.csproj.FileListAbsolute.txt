@@ -1,0 +1,7 @@
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\bin\Debug\TestLINQ.exe.config
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\bin\Debug\TestLINQ.exe
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\bin\Debug\TestLINQ.pdb
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\obj\Debug\TestLINQ.csprojAssemblyReference.cache
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\obj\Debug\TestLINQ.csproj.CoreCompileInputs.cache
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\obj\Debug\TestLINQ.exe
+D:\bankith database\class\Class 1 Tuesday-Morning\TestLINQ\TestLINQ\obj\Debug\TestLINQ.pdb
